@@ -1,0 +1,2 @@
+# DataLemur-SQL-Interview-Questions
+SQL INTERVIW QUESTIONS FROM TOP MNC'S

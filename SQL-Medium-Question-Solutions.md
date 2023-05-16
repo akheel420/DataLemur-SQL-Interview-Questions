@@ -22,6 +22,7 @@ time spent sending / (Time spent sending + Time spent opening)
 Time spent opening / (Time spent sending + Time spent opening)
 To avoid integer division in percentages, multiply by 100.0 and not 100.
 Effective April 15th, 2023, the solution has been updated and optimised.**
+
 **Solution**
 ```sql
 SELECT 
@@ -45,6 +46,7 @@ Notes:
 A rolling average, also known as a moving average or running mean is a time-series technique that examines trends in data over a specified period of time.
 In this case, we want to determine how the tweet count for each user changes over a 3-day period.
 Effective April 7th, 2023, the problem statement, solution and hints for this question have been revised.**
+
 **Solution**
 ```sql
 SELECT    
@@ -60,6 +62,7 @@ FROM tweets;
 
 ### AMAZON
 **4.Assume you're given a table with information on Amazon customers and their spending on products in different categories, write a query to identify the top two highest-grossing products within each category in the year 2022. The output should include the category, product, and total spend.**
+
 **Solution**
 ```sql
 SELECT category,product,spent FROM
@@ -81,6 +84,7 @@ Assumptions:
 The analyst is interested in the activation rate of specific users in the emails table, which may not include all users that could potentially be found in the texts table.
 For example, user 123 in the emails table may not be in the texts table and vice versa.
 Effective April 4th 2023, we added an assumption to the question to provide additional clarity.**
+
 **Solution**
 ```sql
 SELECT ROUND(COUNT(texts.email_id)::DECIMAL/COUNT(DISTINCT emails.email_id),2) AS activation_rate
@@ -93,6 +97,7 @@ on emails.email_id=texts.email_id and signup_action='Confirmed';
 **6.A Microsoft Azure Supercloud customer is a company which buys at least 1 product from each product category.
 Write a query to report the company ID which is a Supercloud customer.
 As of 5 Dec 2022, data in the customer_contracts and products tables were updated.**
+
 **Solution**
 ```sql
 SELECT c.customer_id
@@ -108,6 +113,7 @@ Write a query to calculate the sum of odd-numbered and even-numbered measurement
 Definition:
 Within a day, measurements taken at 1st, 3rd, and 5th times are considered odd-numbered measurements, and measurements taken at 2nd, 4th, and 6th times are considered even-numbered measurements.
 Effective April 15th, 2023, the question and solution for this question have been revised.**
+
 **Solution**
 ```sql
 WITH ranked_measurements AS (
@@ -132,6 +138,7 @@ GROUP BY measurement_day;
 **8.Assume you are given the table on Walmart user transactions. Based on a user's most recent transaction date, write a query to obtain the users and the number of products bought.
 Output the user's most recent transaction date, user ID and the number of products sorted by the transaction date in chronological order.
 P.S. As of 10 Nov 2022, the official solution was changed from output of the transaction date, number of users and number of products to the current output.**
+
 **Solution**
 ```sql
 SELECT transaction_date,user_id,count as purchase_count 
@@ -147,6 +154,7 @@ ORDER BY 1
 ### ALIBABA
 **9.Given a table containing the item count for each order and the frequency of orders with that item count, write a query to determine the mode of the number of items purchased per order on Alibaba. If there are several item counts with the same frequency, you should sort them in ascending order.
 Effective April 22nd, 2023, the problem statement and solution have been revised for enhanced clarity.**
+
 **Solution**
 ```sql
 SELECT item_count
@@ -160,6 +168,7 @@ ORDER BY item_count;
 **10.Your team at JPMorgan Chase is soon launching a new credit card. You are asked to estimate how many cards you'll issue in the first month.
 Before you can answer this question, you want to first get some perspective on how well new credit card launches typically do in their first month.
 Write a query that outputs the name of the credit card, and how many cards were issued in its launch month. The launch month is the earliest record in the monthly_cards_issued table for a given card. Order the results starting from the biggest issued amount.**
+
 **Solution**
 ```sql
 with x as
@@ -176,6 +185,7 @@ ORDER BY 2 DESC
 What percentage of phone calls are international? Round the result to 1 decimal.
 Assumption:
 The caller_id in phone_info table refers to both the caller and receiver.**
+
 **Solution**
 ```sql
 with c AS
